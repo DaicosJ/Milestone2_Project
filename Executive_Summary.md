@@ -7,13 +7,14 @@ Please provide your GitHub repository link.
 
 You should use your software to prepare an executive summary as outlined below for the five required features.
 
-## 1. [Feature 1 Name]
+## 1. Nutritional Value Search
 ### Description  
-Briefly describe what this feature does.
-
+This feature allows users to input specific nutritional requirements (Protein, Fat, Carbohydrates, Calories) to search for food items.
 ### Steps
-1. Step-by-step instructions for using this feature.
-2. Add additional steps as needed.
+1. Launch Application.
+2. Enter values for each field.
+3. Click search button to filter food items based on search parameters.
+4. Review results.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.  
@@ -23,13 +24,13 @@ Include screenshots for each step demonstrating the use of this feature.
 
 ---
 
-## 2. [Feature 2 Name]
+## 2. Results Display
 ### Description  
-Briefly describe what this feature does.
-
+This feature displays the results of the search in grid format, showing information about results.
 ### Steps
-1. Step-by-step instructions for using this feature.
-2. Add additional steps as needed.
+1. Perform search using Nutritional Value search feature
+2. Grid will automatically update to show results.
+3. Review the displayed results. 
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.  
@@ -39,13 +40,13 @@ Include screenshots for each step demonstrating the use of this feature.
 
 ---
 
-## 3. [Feature 3 Name]
+## 3. Reset Filters
 ### Description  
-Briefly describe what this feature does.
-
+Allows users to reset all input fields and clear display results.
 ### Steps
-1. Step-by-step instructions for using this feature.
-2. Add additional steps as needed.
+1. Click the reset button.
+2. Input fields will be cleared.
+3. Users can re-enter values.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
@@ -73,7 +74,7 @@ Include screenshots for each step demonstrating the use of this feature.
 
 ---
 
-## 5. [Feature 5 Name]
+## 5. Data Export
 ### Description  
 Briefly describe what this feature does.
 
