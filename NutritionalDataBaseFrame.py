@@ -137,7 +137,7 @@ class MainFrame ( wx.Frame ):
 
         gSizer2.Add( self.m_staticText9, 0, wx.ALL, 5 )
 
-        self.m_textCtrl13 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_textCtrl13 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 400,300 ), wx.TE_MULTILINE )
         gSizer2.Add( self.m_textCtrl13, 0, wx.ALL, 5 )
 
 

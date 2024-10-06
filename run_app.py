@@ -38,7 +38,7 @@ class MyApp(wx.App):
         fat = self.frame.m_textCtrl2.GetValue()
         carbs = self.frame.m_textCtrl3.GetValue()
         calories = self.frame.m_textCtrl4.GetValue()
-
+        
         print(f"Input Values - Protein: {protein}, Fat: {fat}, Carbs: {carbs}, Calories: {calories}")
 
         try:
