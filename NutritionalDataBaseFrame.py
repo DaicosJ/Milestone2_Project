@@ -9,6 +9,7 @@
 
 import wx
 import wx.xrc
+import wx.grid
 
 import gettext
 _ = gettext.gettext
@@ -20,7 +21,7 @@ _ = gettext.gettext
 class MainFrame ( wx.Frame ):
 
     def __init__( self, parent ):
-        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = _(u"Nutritional Database App"), pos = wx.DefaultPosition, size = wx.Size( 582,300 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = _(u"Nutritional Database App"), pos = wx.DefaultPosition, size = wx.Size( 549,363 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
@@ -73,7 +74,7 @@ class MainFrame ( wx.Frame ):
         bSizer5.Add( self.m_textCtrl6, 0, wx.ALL, 5 )
 
 
-        gSizer2.Add( bSizer5, 1, wx.EXPAND, 5 )
+        gSizer2.Add( bSizer5, 0, wx.EXPAND, 5 )
 
         bSizer51 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -90,7 +91,7 @@ class MainFrame ( wx.Frame ):
         bSizer51.Add( self.m_textCtrl8, 0, wx.ALL, 5 )
 
 
-        gSizer2.Add( bSizer51, 1, wx.EXPAND, 5 )
+        gSizer2.Add( bSizer51, 0, wx.EXPAND, 5 )
 
         bSizer52 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -107,7 +108,7 @@ class MainFrame ( wx.Frame ):
         bSizer52.Add( self.m_textCtrl10, 0, wx.ALL, 5 )
 
 
-        gSizer2.Add( bSizer52, 1, wx.EXPAND, 5 )
+        gSizer2.Add( bSizer52, 0, wx.EXPAND, 5 )
 
         bSizer53 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -124,7 +125,7 @@ class MainFrame ( wx.Frame ):
         bSizer53.Add( self.m_textCtrl12, 0, wx.ALL, 5 )
 
 
-        gSizer2.Add( bSizer53, 1, wx.EXPAND, 5 )
+        gSizer2.Add( bSizer53, 0, wx.EXPAND, 5 )
 
         self.m_button1 = wx.Button( self, wx.ID_ANY, _(u"Search"), wx.DefaultPosition, wx.DefaultSize, 0 )
         gSizer2.Add( self.m_button1, 0, wx.ALL, 5 )
@@ -132,13 +133,34 @@ class MainFrame ( wx.Frame ):
         self.m_button2 = wx.Button( self, wx.ID_ANY, _(u"Reset"), wx.DefaultPosition, wx.DefaultSize, 0 )
         gSizer2.Add( self.m_button2, 0, wx.ALL, 5 )
 
-        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, _(u"Results"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_grid1 = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+
+        # Grid
+        self.m_grid1.CreateGrid( 5, 5 )
+        self.m_grid1.EnableEditing( True )
+        self.m_grid1.EnableGridLines( True )
+        self.m_grid1.EnableDragGridSize( False )
+        self.m_grid1.SetMargins( 0, 0 )
+
+        # Columns
+        self.m_grid1.EnableDragColMove( False )
+        self.m_grid1.EnableDragColSize( True )
+        self.m_grid1.SetColLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+        # Rows
+        self.m_grid1.EnableDragRowSize( True )
+        self.m_grid1.SetRowLabelAlignment( wx.ALIGN_CENTER, wx.ALIGN_CENTER )
+
+        # Label Appearance
+
+        # Cell Defaults
+        self.m_grid1.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
+        gSizer2.Add( self.m_grid1, 0, wx.ALL, 5 )
+
+        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, _(u"MyLabel"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText9.Wrap( -1 )
 
         gSizer2.Add( self.m_staticText9, 0, wx.ALL, 5 )
-
-        self.m_textCtrl13 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.Size( 400,300 ), wx.TE_MULTILINE )
-        gSizer2.Add( self.m_textCtrl13, 0, wx.ALL, 5 )
 
 
         self.SetSizer( gSizer2 )
@@ -147,18 +169,18 @@ class MainFrame ( wx.Frame ):
         self.Centre( wx.BOTH )
 
         # Connect Events
-        self.m_button1.Bind( wx.EVT_BUTTON, self.on_search )
-        self.m_button2.Bind( wx.EVT_BUTTON, self.on_reset )
+        self.m_button1.Bind( wx.EVT_BUTTON, self.search_nutritional_values )
+        self.m_button2.Bind( wx.EVT_BUTTON, self.reset_filters )
 
     def __del__( self ):
         pass
 
 
     # Virtual event handlers, override them in your derived class
-    def on_search( self, event ):
+    def search_nutritional_values( self, event ):
         event.Skip()
 
-    def on_reset( self, event ):
+    def reset_filters( self, event ):
         event.Skip()
 
 
