@@ -21,51 +21,61 @@ _ = gettext.gettext
 class MainFrame ( wx.Frame ):
 
     def __init__( self, parent ):
-        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = _(u"Nutritional Database App"), pos = wx.DefaultPosition, size = wx.Size( 549,363 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
+        wx.Frame.__init__ ( self, parent, id = wx.ID_ANY, title = _(u"Nutritional Database App"), pos = wx.DefaultPosition, size = wx.Size( 800,580 ), style = wx.DEFAULT_FRAME_STYLE|wx.TAB_TRAVERSAL )
 
         self.SetSizeHints( wx.DefaultSize, wx.DefaultSize )
 
         gSizer2 = wx.GridSizer( 0, 2, 0, 0 )
 
-        self.m_staticText1 = wx.StaticText( self, wx.ID_ANY, _(u"Protein (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, _(u"Search") ), wx.VERTICAL )
+
+        self.m_staticText1 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Protein (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText1.Wrap( -1 )
 
-        gSizer2.Add( self.m_staticText1, 0, wx.ALL, 5 )
+        sbSizer1.Add( self.m_staticText1, 0, wx.ALL, 5 )
 
-        self.m_textCtrl1 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_textCtrl1, 0, wx.ALL, 5 )
+        self.m_textCtrl1 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_textCtrl1, 0, wx.ALL, 5 )
 
-        self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, _(u"Fat (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText2 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Fat (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText2.Wrap( -1 )
 
-        gSizer2.Add( self.m_staticText2, 0, wx.ALL, 5 )
+        sbSizer1.Add( self.m_staticText2, 0, wx.ALL, 5 )
 
-        self.m_textCtrl2 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_textCtrl2, 0, wx.ALL, 5 )
+        self.m_textCtrl2 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_textCtrl2, 0, wx.ALL, 5 )
 
-        self.m_staticText3 = wx.StaticText( self, wx.ID_ANY, _(u"Carbohydrates (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText3 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Carbohydrates (g):"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText3.Wrap( -1 )
 
-        gSizer2.Add( self.m_staticText3, 0, wx.ALL, 5 )
+        sbSizer1.Add( self.m_staticText3, 0, wx.ALL, 5 )
 
-        self.m_textCtrl3 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_textCtrl3, 0, wx.ALL, 5 )
+        self.m_textCtrl3 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_textCtrl3, 0, wx.ALL, 5 )
 
-        self.m_staticText4 = wx.StaticText( self, wx.ID_ANY, _(u"Calories:"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText4 = wx.StaticText( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Calories:"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText4.Wrap( -1 )
 
-        gSizer2.Add( self.m_staticText4, 0, wx.ALL, 5 )
+        sbSizer1.Add( self.m_staticText4, 0, wx.ALL, 5 )
 
-        self.m_textCtrl4 = wx.TextCtrl( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_textCtrl4, 0, wx.ALL, 5 )
+        self.m_textCtrl4 = wx.TextCtrl( sbSizer1.GetStaticBox(), wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_textCtrl4, 0, wx.ALL, 5 )
 
-        self.m_button1 = wx.Button( self, wx.ID_ANY, _(u"Search"), wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_button1, 0, wx.ALL, 5 )
+        self.m_button1 = wx.Button( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Search"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_button1, 0, wx.ALL, 5 )
 
-        self.m_button2 = wx.Button( self, wx.ID_ANY, _(u"Reset"), wx.DefaultPosition, wx.DefaultSize, 0 )
-        gSizer2.Add( self.m_button2, 0, wx.ALL, 5 )
+        self.m_button2 = wx.Button( sbSizer1.GetStaticBox(), wx.ID_ANY, _(u"Reset"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer1.Add( self.m_button2, 0, wx.ALL, 5 )
 
-        self.m_grid1 = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.DefaultSize, 0 )
+
+        gSizer2.Add( sbSizer1, 1, wx.EXPAND, 0 )
+
+        bSizer5 = wx.BoxSizer( wx.HORIZONTAL )
+
+        wSizer1 = wx.WrapSizer( wx.VERTICAL, wx.WRAPSIZER_DEFAULT_FLAGS )
+
+        wSizer1.SetMinSize( wx.Size( 0,500 ) )
+        self.m_grid1 = wx.grid.Grid( self, wx.ID_ANY, wx.DefaultPosition, wx.Size( 800,158 ), 0 )
 
         # Grid
         self.m_grid1.CreateGrid( 5, 5 )
@@ -87,12 +97,18 @@ class MainFrame ( wx.Frame ):
 
         # Cell Defaults
         self.m_grid1.SetDefaultCellAlignment( wx.ALIGN_LEFT, wx.ALIGN_TOP )
-        gSizer2.Add( self.m_grid1, 0, wx.ALL, 5 )
+        wSizer1.Add( self.m_grid1, 0, 0, 0 )
 
-        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, _(u"MyLabel"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        self.m_staticText9 = wx.StaticText( self, wx.ID_ANY, _(u"Nutrition Table"), wx.DefaultPosition, wx.DefaultSize, 0 )
         self.m_staticText9.Wrap( -1 )
 
-        gSizer2.Add( self.m_staticText9, 0, wx.ALL, 5 )
+        wSizer1.Add( self.m_staticText9, 0, wx.ALL, 0 )
+
+
+        bSizer5.Add( wSizer1, 0, wx.EXPAND, 0 )
+
+
+        gSizer2.Add( bSizer5, 1, wx.ALIGN_CENTER_VERTICAL|wx.ALL|wx.EXPAND, 0 )
 
 
         self.SetSizer( gSizer2 )
