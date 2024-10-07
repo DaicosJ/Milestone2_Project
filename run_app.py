@@ -102,6 +102,13 @@ class MyApp(wx.App):
         self.frame.m_textCtrl4.SetValue("")
         self.dataframe = reset_filters(self.dataframe)
 
+        num_rows = self.frame.m_grid1.GetNumberRows()
+        num_cols = self.frame.m_grid1.GetNumberCols()
+
+        for row in range(num_rows):
+            for col in range(num_cols):
+                self.frame.m_grid1.SetCellValue(row, col, "")
+
 if __name__=="__main__":
     app = MyApp()
     app.MainLoop()
