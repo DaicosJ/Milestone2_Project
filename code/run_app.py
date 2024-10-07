@@ -1,7 +1,7 @@
 import wx
 import pandas as pd
 import matplotlib.pyplot as plt
-from .NutritionalDataBaseFrame import MainFrame
+from NutritionalDataBaseFrame import MainFrame
 
 def load_dataset(file_path='./Food_Nutrition_Dataset.csv'):
     df = pd.read_csv(file_path)
@@ -39,11 +39,11 @@ def save_results_to_csv(filtered_data, filepath='filtered_results.csv'):
     try:
         if not filtered_data.empty:
             filtered_data.to_csv('filtered_results.csv', index=False)
-            print(f"Data succesfully saved to {filepath}")
+            print(f"Data successfully saved to {filepath}")
         else:
             raise ValueError("The Dataframe is empty, No data saved.")
     except:
-        print(f"Error saving file {filepath}: {e}")
+        print(f"Error saving file {filepath}: ")
 
 class MyApp(wx.App):
     def OnInit(self):

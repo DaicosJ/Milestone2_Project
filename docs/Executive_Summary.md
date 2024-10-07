@@ -20,7 +20,6 @@ This feature allows users to input specific nutritional requirements (Protein, F
 Include screenshots for each step demonstrating the use of this feature.  
 ![1](./visual_design.png)
 
-![2](./visual_design.png)
 
 ---
 
@@ -36,7 +35,6 @@ This feature displays the results of the search in grid format, showing informat
 Include screenshots for each step demonstrating the use of this feature.  
 ![1](./visual_design.png)
 
-![2](./visual_design.png)
 
 ---
 
@@ -52,15 +50,11 @@ Allows users to reset all input fields and clear display results.
 Include screenshots for each step demonstrating the use of this feature.    
 ![1](./visual_design.png)
 
-![2](./visual_design.png)
-
-
 ---
 
-## 4. [Feature 4 Name]
+## 4. Data Visualization (if applicable)
 ### Description  
-Briefly describe what this feature does.
-
+This feature generates a bar chart visualizing nutritional content.
 ### Steps
 1. Step-by-step instructions for using this feature.
 2. Add additional steps as needed.
@@ -68,25 +62,21 @@ Briefly describe what this feature does.
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
 ![1](./visual_design.png)
-
-![2](./visual_design.png)
-
 
 ---
 
 ## 5. Data Export
 ### Description  
-Briefly describe what this feature does.
+This feature allows users to export filtered search results to a CSV file.
 
 ### Steps
-1. Step-by-step instructions for using this feature.
-2. Add additional steps as needed.
+1. After performing a search, click the save button in GUI
+2. Save file to file directory.
+3. User confirms file is saved as CSV file.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
 ![1](./visual_design.png)
-
-![2](./visual_design.png)
 
 
 ---

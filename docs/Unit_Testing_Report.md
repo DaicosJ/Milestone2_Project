@@ -2,7 +2,6 @@
 
 Please provide your GitHub repository link.
 ### GitHub Repository URL: https://github.com/DaicosJ/Milestone2_Project.git
-
 ---
 
 The testing report should focus solely on <span style="color:red"> testing all the self-defined functions related to 
