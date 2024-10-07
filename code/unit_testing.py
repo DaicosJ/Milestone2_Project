@@ -1,8 +1,11 @@
+import sys
 import os
 import pytest
 import pandas as pd
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from run_app import load_dataset, search_nutritional_values, plot_nutrition, reset_filters, save_results_to_csv
 
+@pytest.fixture
 def sample_data():
     data = {
         'food': ['Apple', 'Banana', 'Chicken Breast', 'Broccoli'],
@@ -27,10 +30,10 @@ def test_search_nutritional_values(sample_data):
     assert len(filtered_df) == 3, "Expected 3 results for protein >= 0.5"
 
     filtered_df = search_nutritional_values(sample_data, protein=10)
-    assert len(filtered_df) == 3, "Expected 3 results for protein >= 10"
+    assert len(filtered_df) == 1, "Expected 3 results for protein >= 10"
 
     filtered_df = search_nutritional_values(sample_data, protein=60)
-    assert len(filtered_df) == 3, "Expected 3 results for protein >= 60"
+    assert len(filtered_df) == 0, "Expected 3 results for protein >= 60"
 
 def test_plot_nutrition(sample_data):
     try:
