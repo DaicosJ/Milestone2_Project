@@ -34,7 +34,7 @@ def reset_filters(df):
     return df
 
 def save_results_to_csv(filtered_data):
-    filtered_data.to_csv('filtered_results.csv', Index=False)
+    filtered_data.to_csv('filtered_results.csv', index=False)
 
 class MyApp(wx.App):
     def OnInit(self):
@@ -44,6 +44,7 @@ class MyApp(wx.App):
 
         self.frame.m_button1.Bind(wx.EVT_BUTTON, self.on_search)
         self.frame.m_button2.Bind(wx.EVT_BUTTON, self.on_reset)
+        self.frame.m_button3.Bind(wx.EVT_BUTTON, self.on_save_csv)
         
         return True
     
@@ -52,8 +53,6 @@ class MyApp(wx.App):
         fat = self.frame.m_textCtrl2.GetValue()
         carbs = self.frame.m_textCtrl3.GetValue()
         calories = self.frame.m_textCtrl4.GetValue()
-        
-        print(f"Input Values - Protein: {protein}, Fat: {fat}, Carbs: {carbs}, Calories: {calories}")
 
         try:
 
@@ -63,6 +62,7 @@ class MyApp(wx.App):
             calories = float(calories) if calories else None
 
             filtered_data = search_nutritional_values(self.dataframe, protein, fat, carbs, calories)
+            self.filtered_data = filtered_data
             num_rows = filtered_data.shape[0]
             num_cols = 5
 
@@ -94,7 +94,8 @@ class MyApp(wx.App):
 
         except ValueError:
             wx.MessageBox('Please enter valid numerical values.', 'Error', wx.OK | wx.ICON_ERROR)
-    
+
+
     def on_reset(self, event):
         self.frame.m_textCtrl1.SetValue("")
         self.frame.m_textCtrl2.SetValue("")
@@ -108,6 +109,16 @@ class MyApp(wx.App):
         for row in range(num_rows):
             for col in range(num_cols):
                 self.frame.m_grid1.SetCellValue(row, col, "")
+
+    def on_save_csv(self, event):
+        try:
+            if not self.filtered_data.empty:
+                save_results_to_csv(self.filtered_data)
+                wx.MessageBox("Search results saved to filtered_results.csv", "Success", wx.OK | wx.ICON_INFORMATION)
+            else:
+                wx.MessageBox("No search results to save.", "Error", wx.OK | wx.ICON_INFORMATION)
+        except AttributeError:
+                wx.MessageBox("Please perform a search before saving results.", "Error", wx.OK | wx.ICON_INFORMATION)
 
 if __name__=="__main__":
     app = MyApp()

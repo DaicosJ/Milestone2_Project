@@ -71,6 +71,9 @@ class MainFrame ( wx.Frame ):
         self.m_button2 = wx.Button( sbSizer2.GetStaticBox(), wx.ID_ANY, _(u"Reset"), wx.DefaultPosition, wx.DefaultSize, 0 )
         sbSizer2.Add( self.m_button2, 0, wx.ALL, 5 )
 
+        self.m_button3 = wx.Button( sbSizer2.GetStaticBox(), wx.ID_ANY, _(u"Save"), wx.DefaultPosition, wx.DefaultSize, 0 )
+        sbSizer2.Add( self.m_button3, 0, wx.ALL, 5 )
+
 
         fgSizer1.Add( sbSizer2, 0, 0, 0 )
 
@@ -115,6 +118,7 @@ class MainFrame ( wx.Frame ):
         # Connect Events
         self.m_button1.Bind( wx.EVT_BUTTON, self.search_nutritional_values )
         self.m_button2.Bind( wx.EVT_BUTTON, self.reset_filters )
+        self.m_button3.Bind( wx.EVT_BUTTON, self.save_results_to_csv )
 
     def __del__( self ):
         pass
@@ -125,6 +129,9 @@ class MainFrame ( wx.Frame ):
         event.Skip()
 
     def reset_filters( self, event ):
+        event.Skip()
+
+    def save_results_to_csv( self, event ):
         event.Skip()
 
 
