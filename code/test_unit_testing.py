@@ -45,9 +45,13 @@ def test_reset_filters(sample_data):
     reset_df = reset_filters(sample_data)
     pd.testing.assert_frame_equal(reset_df, sample_data, "reset_filters did not return the original DataFrame")
 
-def test_save_results_to_csv(sample_data):
+def test_save_results_to_csv(sample_data,):
     test_file_path = 'test_filtered_results.csv'
-    save_results_to_csv(sample_data)
+    save_results_to_csv(sample_data, test_file_path)
+
+    assert os.path.exists(test_file_path), f"CSV file was not created at {test_file_path}"
+    if os.path.exists(test_file_path):
+        os.remove(test_file_path)
 
     assert os.path.exists(test_file_path), "CSV file was not created"
     saved_df = pd.read_csv(test_file_path)

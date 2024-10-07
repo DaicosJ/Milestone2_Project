@@ -23,18 +23,27 @@ def search_nutritional_values(df, protein=None, fat=None, carbs=None, calories=N
     return filtered_df
 
 def plot_nutrition(dataframe):
-    values: [dataframe['Protein'].sum(), dataframe['Carbohydrates'].sum()]
-    labels: ['Protein', 'Fat', 'Carbohydrates']
-    plt.bar(labels, values)
-    plt.title('Nutritional Content')
-    plt.ylabel('Grams')
-    plt.show()
+    values = [dataframe['Protein'].sum(), dataframe['Fat'].sum(), dataframe['Carbohydrates'].sum()]
+    labels = ['Protein', 'Fat', 'Carbohydrates']
+    
+    if len(values) == len(labels):
+        plt.bar(labels, values)
+        plt.title('Nutritional Content')
+        plt.ylabel('Grams')
+        plt.show()
 
 def reset_filters(df):
     return df
 
-def save_results_to_csv(filtered_data):
-    filtered_data.to_csv('filtered_results.csv', index=False)
+def save_results_to_csv(filtered_data, filepath='filtered_results.csv'):
+    try:
+        if not filtered_data.empty:
+            filtered_data.to_csv('filtered_results.csv', index=False)
+            print(f"Data succesfully saved to {filepath}")
+        else:
+            raise ValueError("The Dataframe is empty, No data saved.")
+    except:
+        print(f"Error saving file {filepath}: {e}")
 
 class MyApp(wx.App):
     def OnInit(self):
