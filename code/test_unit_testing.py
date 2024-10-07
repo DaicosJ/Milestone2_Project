@@ -3,7 +3,7 @@ import os
 import pytest
 import pandas as pd
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from run_app import load_dataset, search_nutritional_values, plot_nutrition, reset_filters, save_results_to_csv
+from .run_app import load_dataset, search_nutritional_values, plot_nutrition, reset_filters, save_results_to_csv
 
 @pytest.fixture
 def sample_data():

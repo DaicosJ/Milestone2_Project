@@ -1,7 +1,7 @@
 import wx
 import pandas as pd
 import matplotlib.pyplot as plt
-from NutritionalDataBaseFrame import MainFrame
+from .NutritionalDataBaseFrame import MainFrame
 
 def load_dataset(file_path='./Food_Nutrition_Dataset.csv'):
     df = pd.read_csv(file_path)
