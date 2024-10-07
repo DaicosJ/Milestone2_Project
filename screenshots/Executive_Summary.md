@@ -18,7 +18,7 @@ This feature allows users to input specific nutritional requirements (Protein, F
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.  
-![MainFrame](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\GUI_MainFrame.png)
+![1](./visual_design.png)
 
 
 ---
@@ -33,7 +33,9 @@ This feature displays the results of the search in grid format, showing informat
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.  
-![Search](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\GUI_Search.png)
+![1](./visual_design.png)
+
+
 ---
 
 ## 3. Reset Filters
@@ -46,7 +48,7 @@ Allows users to reset all input fields and clear display results.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
-![Reset](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\GUI_MainFrame.png)
+![1](./visual_design.png)
 
 ---
 
@@ -59,7 +61,7 @@ This feature generates a bar chart visualizing nutritional content.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
-![Graph-from Coverage](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\coverage_test_graph.png)
+![1](./visual_design.png)
 
 ---
 
@@ -74,8 +76,7 @@ This feature allows users to export filtered search results to a CSV file.
 
 ### Screenshots
 Include screenshots for each step demonstrating the use of this feature.    
-![Save Success](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\GUI_Save.png)
-![CSV File](C:\SoftwareTech\Milestone2_Project\Milestone2_Project\screenshots\GUI_CSV_Save.png)
+![1](./visual_design.png)
 
 
 ---
